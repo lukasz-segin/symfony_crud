@@ -131,7 +131,6 @@ class TodoController extends Controller
       $todo->setDoDate( $do_date );
       $todo->setCreateDate( $now );
 
-
       $em->flush();
 
       $this->addFlash(
@@ -160,5 +159,25 @@ class TodoController extends Controller
     return $this->render( 'todo/details.html.twig', array(
         'todo' =>  $todo
     ) );
+  }
+
+  /**
+   * @Route("/todo/delete/{id}", name="todo_delete")
+   */
+  public function deleteAction($id) {
+
+//    $em = $this->getDoctrine()->getManager();
+//    $todo = $em->getRepository( 'AppBundle:Todo' )->find( $id );
+//
+//    $em->remove( $todo );
+//    $em->flush();
+
+    $this->addFlash(
+        'notice',
+        'Todo Deleted'
+    );
+
+    return $this->redirectToRoute('todo_list');
+
   }
 }

@@ -46,6 +46,14 @@
 
     <div class="row">
         <div class="col-md-12">
+            {% for flash_message in app.session.flashbag.get( 'notice' ) %}
+                <div class="alert alert-success">{{ flash_message }}</div>
+            {% endfor %}
+
+            {% for flash_message in app.session.flashbag.get( 'error' ) %}
+                <div class="alert alert-danger">{{ flash_message }}</div>
+            {% endfor %}
+
             {% block body %}{% endblock %}
         </div>
     </div>
