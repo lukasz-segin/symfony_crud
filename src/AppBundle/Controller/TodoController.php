@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class TodoController extends Controller
 {
   /**
-   * @Route("/todo", name="todo_list")
+   * @Route("/", name="todo_list")
    */
   public function listAction() {
     return $this->render( 'todo/index.html.twig' );
